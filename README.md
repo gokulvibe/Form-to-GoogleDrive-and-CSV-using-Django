@@ -1,11 +1,11 @@
-##Very Important NOTE before starting:
+## Very Important NOTE before starting:
 The paths for many files in the views.py file have been given as absolute paths.
 In order to make it work in your PC, you have to modify the destinations.
 
 
-###How to create credentials for accessing the Google Drive API
+### How to create credentials for accessing the Google Drive API
 
-####You can easily create the client configuration by the following steps:
+#### You can easily create the client configuration by the following steps:
 
 1. Go to this URL:
    https://developers.google.com/drive/api/v3/quickstart/python
@@ -26,7 +26,7 @@ A pickle file will be created automatically.
 So, you won't hav to grant access every time.
 
 
-###In case it doesn't work when you start the server for the first time:
+### In case it doesn't work when you start the server for the first time:
 1. There is a file "Test.py", in the destination "...\FormSite\form\files"
 2. Run this file once. This will create the pickle file.
 3. Now you should not be having any problems with running your application.
