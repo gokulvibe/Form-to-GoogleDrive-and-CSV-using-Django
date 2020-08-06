@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>A HTML Form</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src='main.js'></script>
+</head>
+
+<body class="container-bg">
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><b>A cool form!</b></a>
+    </nav>
+    <div class="jumbotron bg-light text-dark" class="jumbotron">
+        <div class="container" align="center">
+            <h1 class="display-4">Fill the details below</h1>
+            <button class="btn btn-primary btn-lg mt-4 mb-4" onclick="getLocation()">Get your location</button>
+
+            <p id="messages"></p>
+
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="col-sm-5 col-sm-offset-0">
+                    <div class="form-group">
+
+                        <input class="form-control" type="text" name="latitude" id="latitude" placeholder="Latitude" readonly><br>
+                        <input class="form-control" type="text" name="longitude" id="longitude" placeholder="Longitude" readonly><br>
+
+                        <label for="texts"><u><h5>Enter your username</h5></u></label>
+                        <input class="form-control" type="text" name="username" placeholder="Enter your name"><br>
+                        <label for="texts"><u><h5>Enter your texts</h5></u></label>
+                        <input class="form-control" type="text" name="textfield1" placeholder="Enter your text"><br>
+                        <input class="form-control" type="text" name="textfield2" placeholder="Enter your text"><br>
+                        <input class="form-control" type="text" name="textfield3" placeholder="Enter your text"><br>
+                        <input class="form-control" type="text" name="textfield4" placeholder="Enter your text"><br>
+                        <input class="form-control" type="text" name="textfield5" placeholder="Enter your text"><br>
+
+                        <label for="images"><u><h5>Upload you images</h5></u></label>
+                        <input class="form-control-file ml-5" type="file" name="image1" accept="image/*" placeholder="Upload Image"><br>
+                        <input class="form-control-file ml-5" type="file" name="image2" accept="image/*" placeholder="Upload Image"><br>
+                        <input class="form-control-file ml-5" type="file" name="image3" accept="image/*" placeholder="Upload Image"><br>
+                        <input class="form-control-file ml-5" type="file" name="image4" accept="image/*" placeholder="Upload Image"><br>
+                        <input class="form-control-file ml-5" type="file" name="image5" accept="image/*" placeholder="Upload Image"><br>
+
+
+
+
+                    </div>
+
+                </div>
+                <input class="btn btn-success btn-lg btn-block col-sm-8" type="Submit" value="Submit" />
+            </form>
+
+
+        </div>
+    </div>
+
+</body>
+<script>
+    var x = document.getElementById("latitude");
+    var y = document.getElementById("longitude");
+    var z = document.getElementById("messages")
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            z.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        x.value = position.coords.latitude;
+        y.value = position.coords.longitude;
+
+    }
+</script>
+<style>
+    .container-bg {
+        background: #1f1e12;
+    }
+</style>
+
+</html>
